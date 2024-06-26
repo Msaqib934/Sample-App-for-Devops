@@ -18,6 +18,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'docker_pass', variable: 'docker')]) {
                         sh '''
                         docker build . -t msaqib934/devops-training:${VERSION}
+                        docker login -u msaqib934 -p $docker
                         docker push msaqib934/devops-training:${VERSION}
                         docker rmi msaqib934/devops-training:${VERSION}
                         '''
