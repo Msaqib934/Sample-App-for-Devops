@@ -3,14 +3,11 @@ pipeline {
     environment {
         VERSION = "${env.BUILD_ID}"
     }
+    tools {
+        maven 'maven3'
+    }
     stages {
         stage('mvn clean') {
-            agent {
-                docker {
-                    image 'maven'
-                    args '-v $HOME/.m2:/root/.m2'
-                }
-            }
             steps {
                 sh "mvn clean install"
             }
