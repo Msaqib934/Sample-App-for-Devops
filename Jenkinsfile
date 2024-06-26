@@ -5,6 +5,7 @@ pipeline {
     }
     tools {
         maven 'maven3'
+        docker 'mydocker'
     }
     stages {
         stage('mvn clean') {
