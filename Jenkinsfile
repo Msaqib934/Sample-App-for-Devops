@@ -15,10 +15,10 @@ pipeline {
         stage('push') {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'docker_pass', variable: 'docker')]) {
+                    withCredentials([string(credentialsId: 'docker_pas', variable: 'docke')]) {
                         sh '''
                         docker build . -t msaqib934/devops-training:${VERSION}
-                        docker login -u msaqib934 -p $docker
+                        docker login -u msaqib934 -p $docke
                         docker push msaqib934/devops-training:${VERSION}
                         docker rmi msaqib934/devops-training:${VERSION}
                         '''
